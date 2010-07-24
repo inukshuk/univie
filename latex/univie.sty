@@ -1,0 +1,107 @@
+% univie
+% This package provides the title page for theses at
+% the University of Vienna.
+%
+% Author: Sylvester Keil, May 2010
+
+\ProvidesPackage{univie}
+
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{ifthen}
+
+\provideboolean{UnivieAuthorIsMale}
+\provideboolean{UnivieAdvisorIsMale}
+\setboolean{UnivieAuthorIsMale}{false}
+\setboolean{UnivieAdvisorIsMale}{false}
+
+\newcommand{\unilogo}[1]{\gdef\myunilogo{#1}}
+\newcommand{\myunilogo}{share/logo.eps}
+\newcommand{\subtitle}[1]{\gdef\mysubtitle{#1}}
+\newcommand{\mysubtitle}{}
+\newcommand{\advisor}[1]{\gdef\myadvisor{#1}}
+\newcommand{\myadvisor}{}
+\newcommand{\myadvisorgender}{}
+\newcommand{\curriculum}[2]{%
+	\gdef\mycurriculum{#1}%
+	\gdef\mycode{#2}%
+}
+\newcommand{\mycurriculum}{}
+\newcommand{\mycode}{}
+\newcommand{\doctype}[1]{\gdef\mydoctype{#1}}
+\newcommand{\mydoctype}{}
+\newcommand{\degree}[1]{\gdef\mydegree{#1}}
+\newcommand{\mydegree}{}
+
+% Fonts
+\newcommand{\UnivieMainFont}[1]{\gdef\myUnivieMainFont{#1}}
+\newcommand{\myUnivieMainFont}{\sffamily\normalsize}
+
+\newcommand{\UnivieDoctypeFont}[1]{\gdef\myUnivieDoctypeFont{#1}}
+\newcommand{\myUnivieDoctypeFont}{\myUnivieMainFont\bfseries\Huge}
+\newcommand{\UnivieTitleFont}[1]{\gdef\myUnivieTitleFont{#1}}
+\newcommand{\myUnivieTitleFont}{\myUnivieMainFont\LARGE}
+\newcommand{\UnivieSubtitleFont}[1]{\gdef\myUnivieSubtitleFont{#1}}
+\newcommand{\myUnivieSubtitleFont}{\myUnivieMainFont\LARGE}
+\newcommand{\UnivieAuthorFont}[1]{\gdef\myUnivieAuthorFont{#1}}
+\newcommand{\myUnivieAuthorFont}{\myUnivieMainFont\LARGE}
+\newcommand{\UnivieDegreeFont}[1]{\gdef\myUnivieDegreeFont{#1}}
+\newcommand{\myUnivieDegreeFont}{\myUnivieMainFont\LARGE}
+\newcommand{\UnivieDateFont}[1]{\gdef\myUnivieDateFont{#1}}
+\newcommand{\myUnivieDateFont}{\myUnivieMainFont\footnotesize}
+\newcommand{\UnivieAdditionalInfoFont}[1]{\gdef\myUnivieAdditionalInfoFont{#1}}
+\newcommand{\myUnivieAdditionalInfoFont}{\myUnivieMainFont\footnotesize}
+
+
+\renewcommand{\maketitlehooka}{%
+	\AddToShipoutPicture*{
+		\put(0,0){
+			\parbox[b][\paperheight]{\paperwidth}{%
+				\vskip 2.5cm
+				\hskip 11.10cm
+				\includegraphics[height=2.03cm]{\myunilogo}\vfill}
+		}
+	}
+	\vskip 3.0em
+	\begin{center} {\myUnivieDoctypeFont \mydoctype} \end{center} \vskip 3.0em}
+
+\pretitle{%
+	\begin{center}%
+		{\myUnivieMainFont Titel der \mydoctype} \par%
+		\myUnivieTitleFont%
+}
+
+\posttitle{\par {\myUnivieSubtitleFont \mysubtitle} \end{center} \vskip 3.0em}
+
+\preauthor{%
+	\begin{center}%
+	{\myUnivieMainFont%
+		\ifthenelse{\boolean{UnivieAuthorIsMale}}%
+		{Verfasser}%
+		{Verfasserin}}
+	\par \myUnivieAuthorFont}
+
+\postauthor{\end{center} \vskip 3.0em}
+
+\renewcommand{\maketitlehookc}{%
+	\begin{center}
+		{\myUnivieMainFont angestrebter akademischer Grad} \vskip 1.0em
+		{\myUnivieDegreeFont \mydegree}
+	\end{center} \vfill}
+
+\predate{\myUnivieDateFont}
+\postdate{\vskip 3.0em}
+
+\renewcommand{\maketitlehookd}{%
+	\enlargethispage{5.0em}
+	{
+	\myUnivieAdditionalInfoFont
+	\begin{tabbing}
+		Studienkennzahl lt. Studienblatt: \= \quad \mycode \\
+		Studienrichtung lt. Studienblatt: \> \quad \mycurriculum \\
+		\ifthenelse{\boolean{UnivieAdvisorIsMale}}%
+			{Betreuer}%
+			{Betreuerin}: \> \quad \myadvisor \\
+	\end{tabbing}
+	}
+}

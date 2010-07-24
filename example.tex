@@ -1,0 +1,72 @@
+%
+% This file demonstrates the use of the `univie' package
+%
+% To typeset the example run in the top level directory:
+%
+% xelatex example
+%
+% Instead of `xelatex' you may use alternatives such as `pdflatex'
+%
+% Sylvester Keil, May 2010
+%
+\documentclass[12pt,a4paper,twoside]{memoir}
+
+% Import the package.
+\usepackage{latex/univie}
+
+% Here we set the path to the university's logo (defaults to `share/logo.eps')
+%\unilogo{share/logo.eps}
+
+% Here we set the font settings. Although the use of `xelatex' and the `fontspec' package
+% is highly suggested, it is by no means a necessary requirement. That is, if you prefer
+% you can leave out the `xelatex' specific commands (I have included an example below).
+\usepackage{fontspec}
+\usepackage{xunicode}
+
+\defaultfontfeatures{Mapping=tex-text, Ligatures=Common,
+	Scale=MatchLowercase,Numbers=OldStyle}
+\setmainfont{Minion Pro}
+\setsansfont{Myriad Pro}
+%\setmainfont{Georgia}
+%\setsansfont{Arial}
+
+% Example of font settings without `xelatex' and `fontspec'
+\UnivieMainFont{\rmfamily\normalsize}
+%\UnivieMainFont{\sffamily\normalsize}
+%\UnivieDoctypeFont{\sffamily\bfseries\huge}
+%\UnivieTitleFont{\sffamily\Large}
+%\UnivieSubtitleFont{\sffamily\Large}
+%\UnivieAuthorFont{\sffamily\Large}
+%\UnivieDegreeFont{\sffamily\Large}
+%\UnivieDateFont{\sffamily\footnotesize}
+%\UnivieAdditionalInfoFont{\sffamily\footnotesize}
+
+
+% Here we set the contents for the cover page.
+\doctype{Dissertation}
+\degree{Doktor der Philosophie (Dr.~phil.)}
+\title{Über die Vollständigkeit des Logikkalküls}
+\subtitle{}
+\author{Kurt Gödel}
+\advisor{Univ.-Prof.~Dr.~Hans Hahn}
+\curriculum{Mathematik}{\textsc{A} 091 405}
+\date{Wien, im Mai 1929}
+
+% Next we set the gender of author and advisor
+\setboolean{UnivieAuthorIsMale}{true}
+\setboolean{UnivieAdvisorIsMale}{true}
+
+% The rest of your preamble goes here
+
+\begin{document}
+\frontmatter
+
+% At the beginning of the document we 
+\maketitle
+
+% Here we suppress pagination for the title page
+\thispagestyle{empty}
+
+% The rest of your document goes here
+
+\end{document}

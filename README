@@ -1,0 +1,39 @@
+ABOUT
+
+The univie package provides a title page for theses submitted to the
+University of Vienna and is intended for use with the memoir class.
+
+LICENSE
+
+Copyright (c) 2010 Sylvester Keil. Permission is granted to
+copy, distribute and/or modify this software under the terms of the
+LaTeX Project Public License (LPPL), version 1.3. This package is
+author-maintained. This software is provided 'as is', without
+warranty of any kind, either expressed or implied, including, but
+not limited to, the implied warranties of merchantability and
+fitness for a particular purpose.
+
+FEEDBACK
+
+Please use the univie project page on GitHub to report bugs, feature
+requests or submit fixes.
+
+http://github.org/inukshuk23/univie.git
+
+REQUIREMENTS
+
+Strictly required:
+
+- graphicx
+- eso-pic
+- memoir
+
+Strongly recommended:
+
+- XeLaTeX (for use of modern fonts)
+
+INSTALLATION
+
+USAGE
+
+Refer to the file example.tex for a documented minimal example.
