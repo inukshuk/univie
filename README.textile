@@ -1,9 +1,9 @@
-ABOUT
+h1. univie - LaTeX title pages for the University of Vienna
 
 The univie package provides a title page for theses submitted to the
 University of Vienna and is intended for use with the memoir class.
 
-LICENSE
+h2. License
 
 Copyright (c) 2010 Sylvester Keil. Permission is granted to
 copy, distribute and/or modify this software under the terms of the
@@ -13,27 +13,31 @@ warranty of any kind, either expressed or implied, including, but
 not limited to, the implied warranties of merchantability and
 fitness for a particular purpose.
 
-FEEDBACK
+h2. Feedback
 
-Please use the univie project page on GitHub to report bugs, feature
+Please use the univie "project page":http://github.com/inukshuk/univie on GitHub to report bugs, feature
 requests or submit fixes.
 
-http://github.org/inukshuk23/univie.git
+h2. Requirements
 
-REQUIREMENTS
+*Strictly required:*
 
-Strictly required:
+* _graphicx_ package
+* _eso-pic_ package
+* _ifthen_ package
+* _memoir_ class
 
-- graphicx
-- eso-pic
-- memoir
+*Strongly recommended:*
 
-Strongly recommended:
+* _XeLaTeX_ (for use of modern fonts)
+* _fontspec_ package
 
-- XeLaTeX (for use of modern fonts)
 
-INSTALLATION
+h2. Installation and Quick Start
 
-USAGE
+<pre><code>git clone git://github.com/inukshuk/univie.git univie
+cd univie
+xelatex example
+</code></pre>
 
 Refer to the file example.tex for a documented minimal example.
